@@ -37,24 +37,5 @@
       "id": 6
     }
   ],
-  "favourites": [
-    {
-      "image": "https://preview.colorlib.com/theme/robotics/img/p1.png.webp",
-      "name": "The Crab Wheel",
-      "category": "Who are in extremely love with eco friendly system.",
-      "id": 3
-    },
-    {
-      "image": "https://preview.colorlib.com/theme/robotics/img/p1.png.webp",
-      "name": "The Crab Wheel",
-      "category": "Who are in extremely love with eco friendly system.",
-      "id": 2
-    },
-    {
-      "image": "https://preview.colorlib.com/theme/robotics/img/p1.png.webp",
-      "name": "The Crab Wheel",
-      "category": "Who are in extremely love with eco friendly system.",
-      "id": 1
-    }
-  ]
+  "favourites": []
 }
