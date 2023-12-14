@@ -12,7 +12,7 @@ function getDataJson() {
                 <div class="sec2-box-p1">${element.name}</div>
                 <div class="sec2-box-p2">${element.description}</div>
                 <div class = "sec2-box-btns">
-                <button class = "sec2-box-btn"><a href = "./details.html?id=${element.id}" target = "_blank">View Details</a></button>
+                <button class = "sec2-box-btn"><a href = "./details.html?id=${element.id}">View Details</a></button>
                 <button class = "sec2-box-btn" onclick = "boxsDelete(${element.id})")>Delete</button>
                 <button class = "sec2-box-btn"><a href = "./update.html?id=${element.id}" target = "_blank">Update</a></button>
                 </div>
@@ -22,25 +22,24 @@ function getDataJson() {
         })
 }
 
-getDataJson();
+function boxsDelete(id) {
+    axios.delete("http://localhost:3000/boxs/" + id)
+    window.location.reload()
+}
 
 loadBtn.addEventListener("click", () => {
-    if (event.target.innerText === "Load More") {
-        page++;
-        getDataJson();
-        event.target.innerText = "Less More"
-    }
-    else{
-        event.target.innerText = "Load More"
-        sec2Boxs.innerHTML=""
-        page--
-        getDataJson()
-    }
+    page++
+    getDataJson()
 })
 
+
+getDataJson();
+
+
+
 function addFavorite(id) {
-    axios.get("http://localhost:3000/boxs/"+id)
-    .then(res=>{
-        axios.post("http://localhost:3000/favorites",res.data)
-    })
+    axios.get("http://localhost:3000/boxs/" + id)
+        .then(res => {
+            axios.post("http://localhost:3000/favorites", res.data)
+        })
 }
