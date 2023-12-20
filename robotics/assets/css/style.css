@@ -184,7 +184,3 @@ form{
     text-align: center;
     line-height: 50px;
 }
-
-input[type="file"]{
-    display: none;  
-}

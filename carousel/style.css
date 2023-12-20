@@ -1,0 +1,22 @@
+section{
+    min-height: 100vh;
+}
+
+img{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.carousel-text{
+    position: absolute;
+    top: 40%;
+    width: 40%;
+    left: 10%;
+}
+
+@media screen and (max-width:768px){
+    .carousel-text{
+        width: 80%;
+    }
+}

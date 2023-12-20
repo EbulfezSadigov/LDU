@@ -5,18 +5,10 @@ const form = document.querySelector(".category-form")
 
 form.addEventListener("submit", function (event) {
     event.preventDefault()
-    let obj = {}
-    let src = image.files[0]
-    const reader = new FileReader();
-    reader.readAsDataURL(src);
-    reader.onload = function (e) {
-        obj = {
-            image: e.target.result,
-            name: name.value,
-            category: category.value
-        }
-        console.log(obj);
-        axios.post("http://localhost:3000/robots", obj)
-    };
-    window.location = "../robotics/index.html"
+    const formdata = new FormData()
+    formdata.append("name", name.value)
+    formdata.append("category", category.value)
+    formdata.append("image", image.files[0])
+    console.log(Object.fromEntries(formdata))
+    axios.post("http://localhost:3000/robots", formdata)
 })
