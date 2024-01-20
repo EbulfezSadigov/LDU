@@ -9,7 +9,7 @@ async function getAllCards() {
   let data = await res.data;
   cards.innerHTML = ""
   copyArr = data
-  filteredArr = filteredArr.length ? filteredArr : data;
+  filteredArr = filteredArr.length || searchInput.value ? filteredArr : data;
   filteredArr.forEach((el) => {
     cards.innerHTML += `
         <div class="col col-md-4 col-12 mt-4">
@@ -22,10 +22,6 @@ async function getAllCards() {
             </p>
             <span>${el.price}$</span>
             <a class="btn btn-primary m-3" href="./details.html?id=${el.id}" >LEARN MORE</a>
-            <div>
-              <a onclick=deleteBtn(${el.id}) class="btn btn-danger" >DELETE</a>
-              <a onclick="addFav(${el.id})" class="btn btn-dark" >Add Basket</a>
-            </div>
           </div>
         </div>
       </div>
@@ -57,10 +53,4 @@ sortBtn.addEventListener("change", function (e) {
 function deleteBtn(id) {
   axios.delete(`http://localhost:3000/users/${id}`)
     .then(res => window.location.reload())
-}
-
-async function addFav(cardId) {
-  let res = await axios(`http://localhost:3000/users/${cardId}`);
-  let obj = await res.data;
-  axios.post(`http://localhost:3000/basket`, obj)
 }
